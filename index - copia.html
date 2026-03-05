@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raymond Escobar | Técnico SMYR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="img/favico.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #6366f1;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.6);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: #f1f5f9;
+            scroll-behavior: smooth;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Contenedor del fondo animado */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; 
+            background-color: #0b1121;
+        }
+
+        .glass {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animación para el Carrusel de Herramientas */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 19)); } 
+        }
+
+        .slider {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .slide-track {
+            display: flex;
+            width: calc(250px * 38); 
+            animation: scroll 50s linear infinite;
+        }
+
+        .slide-track:hover {
+            animation-play-state: paused;
+        }
+
+        .slide {
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Estilo base del logo en el carrusel */
+        .tool-logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            margin-bottom: 12px;
+            padding: 8px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            filter: grayscale(20%) brightness(1.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Efecto de Zoom y Borde al pasar el ratón */
+        .slide:hover .tool-logo {
+            filter: grayscale(0%) brightness(1.2);
+            transform: scale(1.2);
+            border-color: var(--primary);
+            background: rgba(14, 165, 233, 0.1);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+        }
+
+        /* Efecto de Hover para tarjetas de proyectos */
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px -15px rgba(14, 165, 233, 0.3);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .project-card .img-primary {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .project-card .img-secondary {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .project-card:hover .img-primary {
+            opacity: 0;
+        }
+        .project-card:hover .img-secondary {
+            opacity: 1;
+        }
+
+        .project-img-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Fondo de Partículas -->
+    <div id="particles-js"></div>
+
+    <!-- Sección 1: Barra de Navegación -->
+    <nav class="fixed w-full z-50 glass top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 font-bold text-xl tracking-wider text-sky-400">
+                    RAYMOND <span class="text-white">ESCOBAR</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#inicio" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Inicio</a>
+                        <a href="#sobre-mi" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Sobre Mí</a>
+                        <a href="#formacion" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Formación</a>
+                        <a href="#experiencia" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Experiencia</a>
+                        <a href="#herramientas" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Herramientas</a>
+                        <a href="#proyectos" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Proyectos</a>
+                        <a href="#contacto" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Contacto</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass px-2 pt-2 pb-3 space-y-1">
+            <a href="#inicio" class="block px-3 py-2 text-base font-medium">Inicio</a>
+            <a href="#sobre-mi" class="block px-3 py-2 text-base font-medium">Sobre Mí</a>
+            <a href="#contacto" class="block px-3 py-2 text-base font-medium">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Inicio -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-sky-400 to-indigo-500 bg-clip-text text-transparent">
+                Raymond J. Escobar G.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 uppercase tracking-widest font-light">
+                Técnico en Sistemas Microinformáticos y Redes
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#contacto" class="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-sky-500/20">Contactar</a>
+                <a href="#proyectos" class="glass px-8 py-3 rounded-full font-bold transition-all border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white">Ver Proyectos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Acerca de mí -->
+    <section id="sobre-mi" class="py-24">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative group mx-auto">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+                    <img src="img/ray.jpg" alt="Raymond Escobar" class="relative rounded-2xl w-full max-w-sm object-cover border-2 border-slate-700 shadow-2xl">
+                </div>
+                <div class="glass p-8 rounded-3xl">
+                    <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-12 h-1 bg-sky-500 inline-block"></span> Sobre Mí
+                    </h2>
+                    <p style="text-align: justify;" class="text-gray-300 mb-8 leading-relaxed">
+                        Como Técnico Informático, me considero una persona curiosa y motivada por el aprendizaje constante. Cuento con amplia experiencia en atención al cliente. Me caracterizo por ser responsable, práctico y empático, con capacidad de adaptación al cambio, facilidad para establecer buenas relaciones interpersonales, compromiso organizacional y aptitud para el trabajo en equipo.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="glass p-4 rounded-xl skill-card transition-all text-center">
+                            <i class="fas fa-microchip text-sky-400 text-2xl mb-2"></i>
+                            <h3 class="font-semibold">[Hardware]</h3>
+                            <p style="font-size: 14px;">Montaje, diagnóstico y mantenimiento de equipos.</p>
+                        </div>
+                        <div class="glass p-4 rounded-xl skill-card transition-all text-center">
+                            <i class="fas fa-code text-indigo-400 text-2xl mb-2"></i>
+                            <h3 class="font-semibold">[Software]</h3>
+                            <p style="font-size: 14px;">Windows Server, Linux Server y Máquinas Virtuales.</p>
+                        </div>
+                        <div class="glass p-4 rounded-xl skill-card transition-all text-center">
+                            <i class="fas fa-tools text-emerald-400 text-2xl mb-2"></i>
+                            <h3 class="font-semibold">[Diseño]</h3>
+                            <p style="font-size: 14px;">Edición de imágenes y vídeos, generación con IA.</p>
+                        </div>
+                        <div class="glass p-4 rounded-xl skill-card transition-all text-center">
+                            <i class="fas fa-shield-alt text-rose-400 text-2xl mb-2"></i>
+                            <h3 class="font-semibold">[Seguridad]</h3>
+                            <p style="font-size: 14px;">Backups, RAIDs, SSH, Servidores Proxy y Radius.</p>
+                        </div>
+                    </div>
+
+                    <a href="cv/Raymond_Escobar_CV.pdf" class="inline-flex items-center gap-2 bg-sky-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/20">
+                        <i class="fas fa-download"></i> Descargar Currículum
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Formación académica -->
+    <section id="formacion" class="py-24">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Formación y Competencias</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Tarjeta de Educación -->
+                <div class="glass p-8 rounded-3xl hover:border-sky-500 hover:-translate-y-2 transition-all duration-300 group">
+                    <h3 class="text-xl font-bold mb-6 text-sky-400 group-hover:text-sky-300 transition-colors"><i class="fas fa-graduation-cap mr-2"></i> Formación académica</h3>
+                    <ul class="space-y-6">
+                        <li class="border-l-2 border-sky-500 pl-4 group-hover:border-sky-300 transition-colors">
+                            <h4 class="font-bold">Técnico en Sistemas Microinformáticos y Redes</h4>
+                            <p class="text-sm text-gray-400">Colegio La Salle "Sagrado Corazón de Jesús"| 2026</p>
+                        </li>
+                        <li class="border-l-2 border-slate-600 pl-4 group-hover:border-sky-500 transition-colors">
+                            <h4 class="font-bold">Abogado (Mención Magna Cum Laude)</h4>
+                            <p class="text-sm text-gray-400">Universidad Central de Venezuela | 2010</p>
+                        </li>
+                    </ul>
+                    <br>
+                    <div>
+                        <h4 class="font-semibold mb-2">Cursos de formación complementaria</h4>
+                        <ul class="text-gray-400 text-sm grid grid-cols-2 gap-2">
+                            <li><i class="fas fa-check-circle text-sky-500 mr-2 group-hover:text-indigo-400 transition-colors"></i> Desarrollador Front-end</li>
+                            <li><i class="fas fa-check-circle text-sky-500 mr-2 group-hover:text-indigo-400 transition-colors"></i> Introducción al desarrollo web</li>
+                            <li><i class="fas fa-check-circle text-sky-500 mr-2 group-hover:text-indigo-400 transition-colors"></i> Inglés como lengua extranjera</li>
+                            <li><i class="fas fa-check-circle text-sky-500 mr-2 group-hover:text-indigo-400 transition-colors"></i> Microsoft Office: Excel</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Tarjeta de Idiomas -->
+                <div class="glass p-8 rounded-3xl hover:border-indigo-500 hover:-translate-y-2 transition-all duration-300 group">
+                    <h3 class="text-xl font-bold mb-6 text-indigo-400 group-hover:text-indigo-300 transition-colors"><i class="fas fa-language mr-2"></i> Idiomas y Aptitudes</h3>
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-2">Idiomas</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-sky-500/10 border border-sky-500/30 px-3 py-1 rounded-full text-sm flex items-center">
+                                <svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500">
+                                    <rect width="750" height="500" fill="#c60b1e"/>
+                                    <rect width="750" height="250" y="125" fill="#ffc400"/>
+                                </svg>
+                                Español (Nativo)
+                            </span>
+                            <span class="bg-indigo-500/10 border border-indigo-500/30 px-3 py-1 rounded-full text-sm flex items-center">
+                                <svg class="flag-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30">
+                                    <clipPath id="s">
+                                        <path d="M0,0 v30 h60 v-30 z"/>
+                                    </clipPath>
+                                    <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+                                    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+                                    <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+                                    <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+                                    <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+                                </svg>
+                                Inglés (B1 - Técnico)
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2">Competencias</h4>
+                        <ul class="text-gray-400 text-sm grid grid-cols-2 gap-2">
+                            <li><i class="fas fa-check-circle text-sky-500 mr-2 group-hover:text-indigo-400 transition-colors"></i> Instalación de redes locales cableadas, inalámbricas y mixtas</li>
+                            <li><i class="fas fa-check-circle text-sky-500 mr-2 group-hover:text-indigo-400 transition-colors"></i> Montaje y configuración de ordenadores y periféricos</li>
+                            <li><i class="fas fa-check-circle text-sky-500 mr-2 group-hover:text-indigo-400 transition-colors"></i> Diagnóstico de disfunciones en sistemas informáticos</li>
+                            <li><i class="fas fa-check-circle text-sky-500 mr-2 group-hover:text-indigo-400 transition-colors"></i> Recuperación de datos y aplicaciones ante fallos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Experiencia Laboral -->
+    <section id="experiencia" class="py-24">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Experiencia Laboral</h2>
+            <div class="space-y-8">
+                <div class="glass p-8 rounded-3xl flex flex-col md:flex-row gap-6 hover:border-sky-500 transition-all group">
+                    <div class="md:w-1/4">
+                        <span class="text-sky-400 font-bold block mb-1">2026 - Actualidad</span>
+                        <h4 class="text-lg font-bold">VHV Consultoría Informática</h4>
+                        <p class="text-sm text-gray-500">Braga, Portugal</p>
+                    </div>
+                    <div class="md:w-3/4 border-l border-slate-700 md:pl-8">
+                        <h4 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Auxiliar de Técnico Informático</h4>
+                        <p class="text-gray-400 mb-4">Asistencia en labores de soporte técnico en equipos informáticos domésticos y empresariales. Mantenimiento y configuración de equipos informáticos.</p>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-3xl flex flex-col md:flex-row gap-6 hover:border-indigo-500 transition-all group">
+                    <div class="md:w-1/4">
+                        <span class="text-indigo-400 font-bold block mb-1">2025</span>
+                        <h4 class="text-lg font-bold">Nubar</h4>
+                        <p class="text-sm text-gray-500">Jerez de la Frontera, España</p>
+                    </div>
+                    <div class="md:w-3/4 border-l border-slate-700 md:pl-8">
+                        <h4 class="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">Auxiliar de Técnico Informático</h4>
+                        <p class="text-gray-400 mb-4">Instalación y configuración de aplicaciones y equipos diseñados para labores de hostelería (Revo). Despliegue de redes locales. Ensamblaje y mantenimiento de ordenadores.</p>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-3xl flex flex-col md:flex-row gap-6 hover:border-sky-500 transition-all group">
+                    <div class="md:w-1/4">
+                        <span class="text-sky-400 font-bold block mb-1">2024-2025</span>
+                        <h4 class="text-lg font-bold">Teleperformance</h4>
+                        <p class="text-sm text-gray-500">Jerez de la Frontera, España</p>
+                    </div>
+                    <div class="md:w-3/4 border-l border-slate-700 md:pl-8">
+                        <h4 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Teleoperador de Soporte técnico</h4>
+                        <p class="text-gray-400 mb-4">Atención de llamadas telefónicas de N1 y N2 para el diagnóstico, gestión, seguimiento y resolución de incidencias técnicas para Orange España.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: Herramientas -->
+    <section id="herramientas" class="py-24">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-12">Herramientas Profesionales</h2>
+            <div class="slider glass rounded-full py-8">
+                <div class="slide-track">
+                    <div class="slide"><img src="img/gimp.png" alt="GIMP" class="tool-logo"><span class="text-xs">GIMP</span></div>
+                    <div class="slide"><img src="img/ps.png" alt="Photoshop" class="tool-logo"><span class="text-xs">Photoshop</span></div>
+                    <div class="slide"><img src="img/xampp.png" alt="XAMPP" class="tool-logo"><span class="text-xs">XAMPP</span></div>
+                    <div class="slide"><img src="img/thunder.png" alt="Thunderbird" class="tool-logo"><span class="text-xs">Thunderbird</span></div>
+                    <div class="slide"><img src="img/mysql.png" alt="MySQL" class="tool-logo"><span class="text-xs">MySQL</span></div>
+                    <div class="slide"><img src="img/canva.png" alt="Canva" class="tool-logo"><span class="text-xs">Canva</span></div>
+                    <div class="slide"><img src="img/gemini.png" alt="Gemini" class="tool-logo"><span class="text-xs">Gemini</span></div>
+                    <div class="slide"><img src="img/html.png" alt="HTML5" class="tool-logo"><span class="text-xs">HMTL5</span></div>
+                    <div class="slide"><img src="img/css.png" alt="CSS3" class="tool-logo"><span class="text-xs">CSS3</span></div>
+                    <div class="slide"><img src="img/wordpress.png" alt="Wordpress" class="tool-logo"><span class="text-xs">Wordpress</span></div>
+                    <div class="slide"><img src="img/word.png" alt="Word" class="tool-logo"><span class="text-xs">Word</span></div>
+                    <div class="slide"><img src="img/excel.png" alt="Excel" class="tool-logo"><span class="text-xs">Excel</span></div>
+                    <div class="slide"><img src="img/powerp.png" alt="PowerPoint" class="tool-logo"><span class="text-xs">PowerPoint</span></div>
+                    <div class="slide"><img src="img/access.png" alt="Access" class="tool-logo"><span class="text-xs">Access</span></div>
+                    <div class="slide"><img src="img/virtualbox.png" alt="VirtualBox" class="tool-logo"><span class="text-xs">VirtualBox</span></div>
+                    <div class="slide"><img src="img/cisco.png" alt="Cisco" class="tool-logo"><span class="text-xs">Packet Tracer</span></div>
+                    <div class="slide"><img src="img/sketch.png" alt="SketchUp" class="tool-logo"><span class="text-xs">SketchUp</span></div>
+                    <div class="slide"><img src="img/vscode.png" alt="VSCode" class="tool-logo"><span class="text-xs">VSCode</span></div>
+                    <div class="slide"><img src="img/filezilla.png" alt="Filezilla" class="tool-logo"><span class="text-xs">Filezilla</span></div>
+                    
+                    <!-- Repetición para animación infinita -->
+                    <div class="slide"><img src="img/gimp.png" class="tool-logo"><span class="text-xs">GIMP</span></div>
+                    <div class="slide"><img src="img/ps.png" class="tool-logo"><span class="text-xs">Photoshop</span></div>
+                    <div class="slide"><img src="img/xampp.png" class="tool-logo"><span class="text-xs">XAMPP</span></div>
+                    <div class="slide"><img src="img/thunder.png" class="tool-logo"><span class="text-xs">Thunderbird</span></div>
+                    <div class="slide"><img src="img/mysql.png" class="tool-logo"><span class="text-xs">MySQL</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 6: Proyectos Destacados -->
+    <section id="proyectos" class="py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Proyecto 1 -->
+                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 flex flex-col">
+                    <div class="h-56 relative project-img-container">
+                        <img src="sketchup/2.png" alt="SketchUp P1" class="img-primary">
+                        <img src="sketchup/3.png" alt="SketchUp P2" class="img-secondary">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Proyecto de SketchUp</h3>
+                        <p class="text-gray-400 text-sm mb-6">Recreación de un aula de informática con herramientas de diseño 3D.</p>
+                        <a href="proyectos/sketchup.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-white transition-colors group/btn">
+                            Ver detalles <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyecto 2 -->
+                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 flex flex-col">
+                    <div class="h-56 relative project-img-container">
+                        <img src="ia/ia1.png" alt="IA P1" class="img-primary">
+                        <img src="ia/ia3.png" alt="IA P2" class="img-secondary">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Video Currículum</h3>
+                        <p class="text-gray-400 text-sm mb-6">Creación de un video currículum implementando múltiples herramientas de IA y edición de vídeo.</p>
+                        <a href="proyectos/video-cv.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-white transition-colors group/btn">
+                            Ver detalles <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyecto 3 -->
+                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 flex flex-col">
+                    <div class="h-56 relative project-img-container">
+                        <img src="minijuegos/1.png" alt="Games P1" class="img-primary">
+                        <img src="minijuegos/2.png" alt="Games P2" class="img-secondary">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Selección de Minijuegos</h3>
+                        <p class="text-gray-400 text-sm mb-6">Recopilación de juegos creados con animaciones y funcionalidades de Microsoft PowerPoint.</p>
+                        <a href="proyectos/minijuegos.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-white transition-colors group/btn">
+                            Ver detalles <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyecto 4 -->
+                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 flex flex-col">
+                    <div class="h-56 relative project-img-container">
+                        <img src="edicion_diseno/1.jpg" alt="Design P1" class="img-primary">
+                        <img src="edicion_diseno/2.jpg" alt="Design P2" class="img-secondary">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Edición y Diseño</h3>
+                        <p class="text-gray-400 text-sm mb-6">Muestra de algunas imágenes y vídeos creados o editados manualmente y con uso de IA.</p>
+                        <a href="proyectos/diseno.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-white transition-colors group/btn">
+                            Ver detalles <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyecto 5 -->
+                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 flex flex-col">
+                    <div class="h-56 relative project-img-container">
+                        <img src="modding/1.jpg" alt="Modding P1" class="img-primary">
+                        <img src="modding/2.jpg" alt="Modding P2" class="img-secondary">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Modding de ordenador</h3>
+                        <p class="text-gray-400 text-sm mb-6">Construcción de una caja funcional con temática de caravana usando materiales de reciclaje.</p>
+                        <a href="proyectos/modding.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-white transition-colors group/btn">
+                            Ver detalles <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyecto 6 -->
+                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 flex flex-col">
+                    <div class="h-56 relative project-img-container">
+                        <img src="helpdesk/1.png" alt="Helpdesk P1" class="img-primary">
+                        <img src="helpdesk/2.png" alt="Helpdesk P2" class="img-secondary">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Diseño de Helpdesk</h3>
+                        <p class="text-gray-400 text-sm mb-6">Creación de un sistema para reportar incidencias y gestionarlas mediante una base de datos.</p>
+                        <a href="proyectos/helpdesk.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-white transition-colors group/btn">
+                            Ver detalles <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyecto 7 -->
+                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 flex flex-col">
+                    <div class="h-56 relative project-img-container">
+                        <img src="webs/Moodle1.png" alt="Web P1" class="img-primary">
+                        <img src="webs/nomadas1.png" alt="Web P2" class="img-secondary">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Páginas web</h3>
+                        <p class="text-gray-400 text-sm mb-6">Uso de HTML5 y CCS3 para la creación de páginas web, CMS (Wordpress) y LMS (Moodle).</p>
+                        <a href="proyectos/webs.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-white transition-colors group/btn">
+                            Ver detalles <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyecto 8 -->
+                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 flex flex-col">
+                    <div class="h-56 relative project-img-container">
+                        <img src="os/linux.png" alt="OS P1" class="img-primary">
+                        <img src="os/winserver.png" alt="OS P2" class="img-secondary">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Gestión de Sistemas Operativos</h3>
+                        <p class="text-gray-400 text-sm mb-6">Instalación y configuración de servicios esenciales en sistemas operativos en red</p>
+                        <a href="proyectos/sistemas.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-white transition-colors group/btn">
+                            Ver detalles <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Proyecto 9 -->
+                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 flex flex-col">
+                    <div class="h-56 relative project-img-container">
+                        <img src="digi_sost/digitalizacion1.png" alt="Sost P1" class="img-primary">
+                        <img src="digi_sost/industria1.png" alt="Sost P2" class="img-secondary">
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-sky-400 transition-colors">Digitalización y sostenibilidad</h3>
+                        <p class="text-gray-400 text-sm mb-6">Presentaciones que destacan la importancia de la tecnología en el cuidado del planeta.</p>
+                        <a href="proyectos/sostenibilidad.html" class="inline-flex items-center gap-2 text-sm font-bold text-sky-400 hover:text-white transition-colors group/btn">
+                            Ver detalles <i class="fas fa-arrow-right transition-transform group-hover/btn:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 7: Contacto -->
+    <section id="contacto" class="py-24 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass p-10 md:p-16 rounded-[2rem] shadow-2xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-2">Conectemos</h2>
+                    <p class="text-gray-400">Si buscas un perfil técnico comprometido, aquí tienes mis datos.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-sky-500/20 rounded-2xl flex items-center justify-center text-sky-400 text-xl border border-sky-500/20">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold tracking-widest">Email</p>
+                            <p class="text-sky-100">rjescobarg@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-indigo-500/20 rounded-2xl flex items-center justify-center text-indigo-400 text-xl border border-indigo-500/20">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold tracking-widest">Teléfono</p>
+                            <p class="text-sky-100">+34 644 087 226</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 text-xl border border-emerald-500/20">
+                            <i class="fas fa-location-arrow"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold tracking-widest">Ubicación</p>
+                            <p class="text-sky-100">Jerez de la Frontera, España</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5">
+                        <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 text-xl border border-blue-500/20">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold tracking-widest">LinkedIn</p>
+                            <p class="text-sky-100"><a href="https://www.linkedin.com/in/raymond-escobar/" target="_blank"> Raymond J. Escobar G.</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 8: Pie de página -->
+    <footer class="py-12 border-t border-white/5 text-center relative z-10 bg-slate-950/80">
+        <div class="max-w-6xl mx-auto px-4">
+            <p class="text-gray-500 text-sm">
+                &copy; 2026 Raymond J. Escobar G. | <span class="text-sky-500">Técnico SMYR</span>
+            </p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://github.com/ray-sco" target="_blank" class="text-gray-600 hover:text-sky-400"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/raymond-escobar/" target="_blank" class="text-gray-600 hover:text-sky-400"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#0ea5e9" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#0ea5e9",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>

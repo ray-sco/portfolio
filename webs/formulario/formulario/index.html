@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Formulario De Contacto</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="estilo.css">
+	</head>
+	<body>
+		<div class="form">
+		&nbsp;<img style="position: absolute; left:75%; top:24" border="0" src="img/logo.png" width="75" height="75">
+			<form action="guardar.php" method="POST">
+				<p>Nombre</p>
+				<label for="nombre">Escriba su nombre</label>
+				<br>
+				<input type="text" name="nombre" placeholder="Marco Polo" required>
+				<p>Teléfono</p>
+				<label for="telefono">Teléfono de contacto</label>
+				<br>
+				<input type="number" name="telefono" placeholder="600111222" required>
+				<p>Correo</p>
+				<label for="correo">Direccion De Correo</label>
+				<br>
+				<input type="email" name="correo" placeholder="ejemplo@nomadas.com" required>
+
+				<p>Destino</p>
+				<label for="destino">Elija el lugar que desea explorar</label>
+				<br>
+				<select name="destino">
+					<option>Bali</option>
+					<option>Islas Galápagos</option>
+					<option>Monte Kilimanjaro</option>
+					<option>Islas Maldivas</option>
+					<option>Norte de Noruega</option>
+					<option>Tanzania</option>
+				</select>
+
+				<p>Mensaje</p>
+				<label for="mensaje">Su Mensaje</label>
+				<br>
+				<textarea name="mensaje" placeholder="Indique requerimientos especiales sobre su viaje" required></textarea>
+				<br>
+				<br>
+				<input type="submit" value="Enviar">
+			</form>
+		</div>
+	</body>
+</html>
