@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="img/favico.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Particles.js Library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
@@ -63,9 +62,6 @@
             animation: scroll 50s linear infinite;
         }
 
-        /* Eliminada la pausa en hover para que el carrusel sea continuo */
-        /* .slide-track:hover { animation-play-state: paused; } */
-
         .slide {
             width: 250px;
             display: flex;
@@ -75,7 +71,6 @@
             padding: 20px;
         }
 
-        /* Estilo base del logo en el carrusel */
         .tool-logo {
             width: 70px;
             height: 70px;
@@ -109,7 +104,6 @@
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Colores específicos de hover para cada tipo de contacto */
         .contact-item.hover-email:hover { border-color: #0ea5e9; shadow: 0 0 20px rgba(14, 165, 233, 0.2); }
         .contact-item.hover-phone:hover { border-color: #6366f1; shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
         .contact-item.hover-location:hover { border-color: #10b981; shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
@@ -184,14 +178,37 @@
             border-radius: 2px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
+
+        /* Ocultar scrollbar para el carrusel de proyectos */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+
+/* Estado inicial de las secciones: invisibles y 50px desplazadas hacia abajo */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+/* Estado cuando la sección es visible */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Fondo de Partículas -->
     <div id="particles-js"></div>
 
-    <!-- Sección 1: Barra de Navegación -->
     <nav class="fixed w-full z-50 glass top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -201,7 +218,7 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#inicio" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Inicio</a>
-                        <a href="#sobre-mi" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Sobre Mí</a>
+                        <a href="#sobre-mi" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Sobre mí</a>
                         <a href="#formacion" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Formación</a>
                         <a href="#experiencia" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Experiencia</a>
                         <a href="#herramientas" class="nav-link px-3 py-2 text-sm font-medium transition-colors">Herramientas</a>
@@ -218,7 +235,7 @@
         </div>
         <div id="mobile-menu" class="hidden md:hidden glass px-2 pt-2 pb-3 space-y-1">
             <a href="#inicio" class="block px-3 py-2 text-base font-medium">Inicio</a>
-            <a href="#sobre-mi" class="block px-3 py-2 text-base font-medium">Sobre Mí</a>
+            <a href="#sobre-mi" class="block px-3 py-2 text-base font-medium">Sobre mí</a>
             <a href="#formacion" class="block px-3 py-2 text-base font-medium">Formación</a>
             <a href="#experiencia" class="block px-3 py-2 text-base font-medium">Experiencia</a>
             <a href="#herramientas" class="block px-3 py-2 text-base font-medium">Herramientas</a>
@@ -227,8 +244,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section / Inicio -->
-    <section id="inicio" class="min-h-screen flex items-center justify-center px-4">
+    <section id="inicio" class="min-h-screen flex items-center justify-center px-4 reveal">
         <div class="max-w-5xl mx-auto text-center">
             <h1 class="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-sky-400 to-indigo-500 bg-clip-text text-transparent">
                 Raymond J. Escobar G.
@@ -243,8 +259,7 @@
         </div>
     </section>
 
-    <!-- Sección 2: Acerca de mí -->
-    <section id="sobre-mi" class="py-24">
+    <section id="sobre-mi" class="py-24 reveal">
         <div class="max-w-6xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="relative group mx-auto">
@@ -253,7 +268,7 @@
                 </div>
                 <div class="glass p-8 rounded-3xl">
                     <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
-                        <span class="w-12 h-1 bg-sky-500 inline-block"></span> Sobre Mí
+                        <span class="w-12 h-1 bg-sky-500 inline-block"></span> Sobre mí
                     </h2>
                     <p style="text-align: justify;" class="text-gray-300 mb-8 leading-relaxed">
                         Como Técnico Informático, me considero una persona curiosa y motivada por el aprendizaje constante. Cuento con amplia experiencia en atención al cliente. Me caracterizo por ser responsable, práctico y empático, con capacidad de adaptación al cambio, facilidad para establecer buenas relaciones interpersonales, compromiso organizacional y aptitud para el trabajo en equipo.</p>
@@ -262,22 +277,22 @@
                         <div class="glass p-4 rounded-xl skill-card transition-all text-center">
                             <i class="fas fa-microchip text-sky-400 text-2xl mb-2"></i>
                             <h3 class="font-semibold text-sm">[Hardware]</h3>
-                            <p style="font-size: 12px;">Montaje y diagnóstico de equipos.</p>
+                            <p style="font-size: 12px;">Montaje, diagnóstico y mantenimiento de equipos.</p>
                         </div>
                         <div class="glass p-4 rounded-xl skill-card transition-all text-center">
                             <i class="fas fa-code text-indigo-400 text-2xl mb-2"></i>
                             <h3 class="font-semibold text-sm">[Software]</h3>
-                            <p style="font-size: 12px;">Servidores y Virtualización.</p>
+                            <p style="font-size: 12px;">Windows Server, Linux Server y Máquinas Virtuales.</p>
                         </div>
                         <div class="glass p-4 rounded-xl skill-card transition-all text-center">
                             <i class="fas fa-tools text-emerald-400 text-2xl mb-2"></i>
                             <h3 class="font-semibold text-sm">[Diseño]</h3>
-                            <p style="font-size: 12px;">Edición multimedia e IA.</p>
+                            <p style="font-size: 12px;">Edición de imágenes y vídeos, generación con IA.</p>
                         </div>
                         <div class="glass p-4 rounded-xl skill-card transition-all text-center">
                             <i class="fas fa-shield-alt text-rose-400 text-2xl mb-2"></i>
                             <h3 class="font-semibold text-sm">[Seguridad]</h3>
-                            <p style="font-size: 12px;">Redes y Copias de Seguridad.</p>
+                            <p style="font-size: 12px;">Backups, RAIDs, SSH, Servidores Proxy y Radius.</p>
                         </div>
                     </div>
 
@@ -289,12 +304,10 @@
         </div>
     </section>
 
-    <!-- Sección 3: Formación académica -->
-    <section id="formacion" class="py-24">
+    <section id="formacion" class="py-24 reveal">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center">Trayectoria Académica</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Educación Principal -->
                 <div class="glass p-8 rounded-3xl hover:border-sky-500 transition-all duration-300 group">
                     <h3 class="text-xl font-bold mb-6 text-sky-400"><i class="fas fa-graduation-cap mr-2"></i> Formación académica</h3>
                     <ul class="space-y-6">
@@ -308,7 +321,6 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Idiomas -->
                 <div class="glass p-8 rounded-3xl hover:border-indigo-500 transition-all duration-300 group">
                     <h3 class="text-xl font-bold mb-6 text-indigo-400"><i class="fas fa-globe mr-2"></i> Idiomas</h3>
                     <div class="space-y-4">
@@ -332,12 +344,10 @@
         </div>
     </section>
 
-    <!-- Habilidades y Competencias -->
-    <section id="habilidades" class="py-24">
+    <section id="habilidades" class="py-24 reveal">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center">Aptitudes y Competencias</h2>
             <div class="grid md:grid-cols-2 gap-12">
-                <!-- Competencias Profesionales -->
                 <div class="glass p-8 rounded-3xl hover:border-sky-500 transition-all duration-300 group">
                     <h3 class="text-2xl font-bold mb-6 text-white flex items-center gap-3">
                         <i class="fas fa-cogs text-sky-400"></i> Competencias Profesionales
@@ -362,7 +372,6 @@
                     </ul>
                 </div>
 
-                <!-- Habilidades Blandas -->
                 <div class="glass p-8 rounded-3xl hover:border-indigo-500 transition-all duration-300 group">
                     <h3 class="text-2xl font-bold mb-6 text-white flex items-center gap-3">
                         <i class="fas fa-user-tie text-indigo-400"></i> Habilidades Blandas
@@ -390,8 +399,7 @@
         </div>
     </section>
 
-    <!-- Sección 4: Experiencia Laboral -->
-    <section id="experiencia" class="py-24">
+    <section id="experiencia" class="py-24 reveal">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center">Experiencia Laboral</h2>
             <div class="space-y-8">
@@ -432,8 +440,7 @@
         </div>
     </section>
 
-    <!-- Sección 5: Herramientas -->
-    <section id="herramientas" class="py-24">
+    <section id="herramientas" class="py-24 reveal">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-12">Herramientas Profesionales</h2>
             <div class="slider glass rounded-full py-8">
@@ -458,7 +465,6 @@
                     <div class="slide"><img src="img/vscode.png" alt="VSCode" class="tool-logo"><span class="text-xs">VSCode</span></div>
                     <div class="slide"><img src="img/filezilla.png" alt="Filezilla" class="tool-logo"><span class="text-xs">Filezilla</span></div>
                     
-                    <!-- Repetición para animación -->
                     <div class="slide"><img src="img/gimp.png" class="tool-logo"><span class="text-xs">GIMP</span></div>
                     <div class="slide"><img src="img/ps.png" class="tool-logo"><span class="text-xs">Photoshop</span></div>
                     <div class="slide"><img src="img/xampp.png" class="tool-logo"><span class="text-xs">XAMPP</span></div>
@@ -469,121 +475,142 @@
         </div>
     </section>
 
-    <!-- Sección 6: Proyectos Destacados -->
-    <section id="proyectos" class="py-24">
-        <div class="max-w-7xl mx-auto px-4">
+    <section id="proyectos" class="py-24 relative reveal">
+        <div class="max-w-7xl mx-auto px-4 relative">
             <h2 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 bg-sky-500 hover:bg-sky-400 text-white w-14 h-14 text-xl rounded-full flex items-center justify-center border-2 border-sky-300 shadow-[0_0_20px_rgba(14,165,233,0.6)] hover:shadow-[0_0_30px_rgba(14,165,233,0.9)] transition-all hidden md:flex cursor-pointer backdrop-blur-sm -ml-4 hover:scale-110">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-20 bg-sky-500 hover:bg-sky-400 text-white w-14 h-14 text-xl rounded-full flex items-center justify-center border-2 border-sky-300 shadow-[0_0_20px_rgba(14,165,233,0.6)] hover:shadow-[0_0_30px_rgba(14,165,233,0.9)] transition-all hidden md:flex cursor-pointer backdrop-blur-sm -mr-4 hover:scale-110">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <div id="carouselTrack" class="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-8 pb-8 no-scrollbar scroll-smooth">
                 
-                <!-- Tarjetas de Proyectos con botón de enlace -->
-
-                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5">
-                    <div class="h-56 relative project-img-container">
-                        <img src="sketchup/2.png" alt="P1-A" class="img-primary">
-                        <img src="sketchup/3.png" alt="P1-B" class="img-secondary">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Proyecto de SketchUp</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow">Recreación de un aula de informática con herramientas de diseño 3D.</p>
-                        <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5">
-                    <div class="h-56 relative project-img-container">
-                        <img src="ia/ia1.png" alt="P2-A" class="img-primary">
-                        <img src="ia/ia3.png" alt="P2-B" class="img-secondary">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Video Currículum</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow">Creación de un video currículum implementando múltiples herramientas de IA y edición de vídeo.</p>
-                        <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                <div class="snap-center flex-none w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                    <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 h-full flex flex-col">
+                        <div class="h-56 relative project-img-container">
+                            <img src="sketchup/2.png" alt="P1-A" class="img-primary">
+                            <img src="sketchup/3.png" alt="P1-B" class="img-secondary">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Proyecto de SketchUp</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Recreación de un aula de informática con herramientas de diseño 3D.</p>
+                            <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5">
-                    <div class="h-56 relative project-img-container">
-                        <img src="minijuegos/1.png" alt="P3-A" class="img-primary">
-                        <img src="minijuegos/2.png" alt="P3-B" class="img-secondary">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Selección de Minijuegos</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow">Recopilación de juegos creados con animaciones y funcionalidades de Microsoft PowerPoint.</p>
-                        <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5">
-                    <div class="h-56 relative project-img-container">
-                        <img src="edicion_diseno/1.jpg" alt="P4-A" class="img-primary">
-                        <img src="edicion_diseno/2.jpg" alt="P4-B" class="img-secondary">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Edición y Diseño</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow">Muestra de algunas imágenes y vídeos creados o editados manualmente y con uso de IA.</p>
-                        <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                <div class="snap-center flex-none w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                    <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 h-full flex flex-col">
+                        <div class="h-56 relative project-img-container">
+                            <img src="ia/ia1.png" alt="P2-A" class="img-primary">
+                            <img src="ia/ia3.png" alt="P2-B" class="img-secondary">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Video Currículum</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Creación de un video currículum implementando múltiples herramientas de IA y edición de vídeo.</p>
+                            <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5">
-                    <div class="h-56 relative project-img-container">
-                        <img src="modding/1.jpg" alt="P5-A" class="img-primary">
-                        <img src="modding/2.jpg" alt="P5-B" class="img-secondary">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Modding de ordenador</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow">Construcción de una caja funcional con temática de caravana usando materiales de reciclaje.</p>
-                        <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
-                    </div>
-                </div>
-
-
-                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5">
-                    <div class="h-56 relative project-img-container">
-                        <img src="helpdesk/1.png" alt="P6-A" class="img-primary">
-                        <img src="helpdesk/2.png" alt="P6-B" class="img-secondary">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Diseño de Helpdesk</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow">Creación de un sistema para reportar incidencias y gestionarlas mediante una base de datos.</p>
-                        <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                <div class="snap-center flex-none w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                    <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 h-full flex flex-col">
+                        <div class="h-56 relative project-img-container">
+                            <img src="minijuegos/1.png" alt="P3-A" class="img-primary">
+                            <img src="minijuegos/2.png" alt="P3-B" class="img-secondary">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Selección de Minijuegos</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Recopilación de juegos creados con animaciones y funcionalidades de Microsoft PowerPoint.</p>
+                            <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                        </div>
                     </div>
                 </div>
 
-
-                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5">
-                    <div class="h-56 relative project-img-container">
-                        <img src="webs/Moodle1.png" alt="P7-A" class="img-primary">
-                        <img src="webs/nomadas1.png" alt="P7-B" class="img-secondary">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Páginas web</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow">Uso de HTML5 y CCS3 para la creación de páginas web, CMS (Wordpress) y LMS (Moodle).</p>
-                        <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5">
-                    <div class="h-56 relative project-img-container">
-                        <img src="os/linux.png" alt="P5-8" class="img-primary">
-                        <img src="os/winserver.png" alt="P8-B" class="img-secondary">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Gestión de Sistemas Operativos</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow">Instalación y configuración de servicios esenciales en sistemas operativos en red</p>
-                        <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                <div class="snap-center flex-none w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                    <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 h-full flex flex-col">
+                        <div class="h-56 relative project-img-container">
+                            <img src="edicion_diseno/1.jpg" alt="P4-A" class="img-primary">
+                            <img src="edicion_diseno/2.jpg" alt="P4-B" class="img-secondary">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Edición y Diseño</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Muestra de algunas imágenes y vídeos creados o editados manualmente y con uso de IA.</p>
+                            <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5">
-                    <div class="h-56 relative project-img-container">
-                        <img src="digi_sost/digitalizacion1.png" alt="P9-A" class="img-primary">
-                        <img src="digi_sost/industria1.png" alt="P9-B" class="img-secondary">
+                <div class="snap-center flex-none w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                    <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 h-full flex flex-col">
+                        <div class="h-56 relative project-img-container">
+                            <img src="modding/1.jpg" alt="P5-A" class="img-primary">
+                            <img src="modding/2.jpg" alt="P5-B" class="img-secondary">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Modding de ordenador</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Construcción de una caja funcional con temática de caravana usando materiales de reciclaje.</p>
+                            <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                        </div>
                     </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Digitalización y sostenibilidad</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow">Presentaciones que destacan la importancia de la tecnología en el cuidado del planeta.</p>
-                        <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                </div>
+
+                <div class="snap-center flex-none w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                    <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 h-full flex flex-col">
+                        <div class="h-56 relative project-img-container">
+                            <img src="helpdesk/1.png" alt="P6-A" class="img-primary">
+                            <img src="helpdesk/2.png" alt="P6-B" class="img-secondary">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Diseño de Helpdesk</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Creación de un sistema para reportar incidencias y gestionarlas mediante una base de datos.</p>
+                            <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snap-center flex-none w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                    <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 h-full flex flex-col">
+                        <div class="h-56 relative project-img-container">
+                            <img src="webs/Moodle1.png" alt="P7-A" class="img-primary">
+                            <img src="webs/nomadas1.png" alt="P7-B" class="img-secondary">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Páginas web</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Uso de HTML5 y CCS3 para la creación de páginas web, CMS (Wordpress) y LMS (Moodle).</p>
+                            <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snap-center flex-none w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                    <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 h-full flex flex-col">
+                        <div class="h-56 relative project-img-container">
+                            <img src="os/linux.png" alt="P5-8" class="img-primary">
+                            <img src="os/winserver.png" alt="P8-B" class="img-secondary">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Gestión de Sistemas Operativos</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Instalación y configuración de servicios esenciales en sistemas operativos en red</p>
+                            <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="snap-center flex-none w-[85%] sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                    <div class="project-card glass rounded-3xl overflow-hidden group border border-white/5 h-full flex flex-col">
+                        <div class="h-56 relative project-img-container">
+                            <img src="digi_sost/digitalizacion1.png" alt="P9-A" class="img-primary">
+                            <img src="digi_sost/industria1.png" alt="P9-B" class="img-secondary">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold mb-2">Digitalización y sostenibilidad</h3>
+                            <p class="text-gray-400 text-sm mb-6 flex-grow">Presentaciones que destacan la importancia de la tecnología en el cuidado del planeta.</p>
+                            <a href="#" class="mt-auto block w-full text-center py-2 rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-semibold hover:bg-sky-500 hover:text-white transition-all">Ver Proyecto</a>
+                        </div>
                     </div>
                 </div>
 
@@ -591,16 +618,14 @@
         </div>
     </section>
 
-    <!-- Sección 7: Contacto -->
-    <section id="contacto" class="py-24 px-4">
+    <section id="contacto" class="py-24 px-4 reveal">
         <div class="max-w-5xl mx-auto">
             <div class="glass p-10 md:p-16 rounded-[2rem] shadow-2xl">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold mb-2">Conectemos</h2>
-                    <p class="text-gray-400">Si buscas un perfil técnico comprometido, aquí tienes mis datos.</p>
+                    <h2 class="text-3xl font-bold mb-2">Contacta conmigo</h2>
+                    <p class="text-gray-400">Si buscas un perfil técnico comprometido, a continuación tienes mis datos.</p>
                 </div>
                 <div class="grid sm:grid-cols-2 gap-6">
-                    <!-- Email Card -->
                     <div class="contact-item hover-email glass p-6 rounded-2xl flex items-center gap-5 border border-white/5">
                         <div class="w-14 h-14 bg-sky-500/20 rounded-2xl flex items-center justify-center text-sky-400 text-xl border border-sky-500/20 transition-transform">
                             <i class="fas fa-envelope"></i>
@@ -610,7 +635,6 @@
                             <p class="text-sky-100 text-sm break-all">rjescobarg@gmail.com</p>
                         </div>
                     </div>
-                    <!-- Teléfono Card -->
                     <div class="contact-item hover-phone glass p-6 rounded-2xl flex items-center gap-5 border border-white/5">
                         <div class="w-14 h-14 bg-indigo-500/20 rounded-2xl flex items-center justify-center text-indigo-400 text-xl border border-indigo-500/20 transition-transform">
                             <i class="fas fa-phone"></i>
@@ -620,7 +644,6 @@
                             <p class="text-sky-100">+34 644 087 226</p>
                         </div>
                     </div>
-                    <!-- Ubicación Card -->
                     <div class="contact-item hover-location glass p-6 rounded-2xl flex items-center gap-5 border border-white/5">
                         <div class="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 text-xl border border-emerald-500/20 transition-transform">
                             <i class="fas fa-location-arrow"></i>
@@ -630,7 +653,6 @@
                             <p class="text-sky-100">Jerez de la Frontera, España</p>
                         </div>
                     </div>
-                    <!-- LinkedIn Card -->
                     <a href="https://www.linkedin.com/in/raymond-escobar/" target="_blank" class="contact-item hover-linkedin glass p-6 rounded-2xl flex items-center gap-5 border border-white/5">
                         <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 text-xl border border-blue-500/20 transition-transform">
                             <i class="fab fa-linkedin-in"></i>
@@ -645,7 +667,6 @@
         </div>
     </section>
 
-    <!-- Sección 8: Pie de página -->
     <footer class="py-12 border-t border-white/5 text-center relative z-10 bg-slate-950/80">
         <div class="max-w-6xl mx-auto px-4">
             <p class="text-gray-500 text-sm">
@@ -698,9 +719,66 @@
             "retina_detect": true
         });
 
+        // Toggle del menú móvil
         const menuBtn = document.getElementById('mobile-menu-button');
         const menu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        // Script para el Carrusel de Proyectos con Lógica de Bucle
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if(track && prevBtn && nextBtn) {
+                const getScrollAmount = () => {
+                    const card = track.querySelector('.snap-center');
+                    // Retorna el ancho de la tarjeta más un estimado del gap para mover una a la vez
+                    return card.offsetWidth + 24; 
+                };
+
+                nextBtn.addEventListener('click', () => {
+                    // Verifica si estamos al final del carrusel con un pequeño margen de 10px
+                    if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+                        track.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                    }
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    // Verifica si estamos al principio del carrusel
+                    if (track.scrollLeft <= 10) {
+                        track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+                    } else {
+                        track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+
+
+// Configuración del efecto de aparición al hacer scroll
+const observerOptions = {
+    root: null, // usa la ventana del navegador
+    threshold: 0.15 // se activa cuando el 15% de la sección es visible
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Opcional: deja de observar una vez que ya apareció
+            // observer.unobserve(entry.target); 
+        }
+    });
+}, observerOptions);
+
+// Aplicar el observador a todos los elementos con la clase .reveal
+document.querySelectorAll('.reveal').forEach(section => {
+    observer.observe(section);
+});
+
     </script>
 </body>
 </html>
