@@ -47,7 +47,7 @@
         /* Animación para el Carrusel de Herramientas */
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-250px * 19)); } 
+            100% { transform: translateX(calc(-50%)); } 
         }
 
         .slider {
@@ -58,12 +58,12 @@
 
         .slide-track {
             display: flex;
-            width: calc(250px * 38); 
-            animation: scroll 50s linear infinite;
+            width: max-content;
+            animation: scroll 30s linear infinite;
         }
 
         .slide {
-            width: 250px;
+            width: 200px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -273,7 +273,7 @@
                     <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
                         <span class="w-12 h-1 bg-sky-500 inline-block"></span> Sobre mí
                     </h2>
-                    <p style="text-align: justify;" class="text-gray-300 mb-8 leading-relaxed">
+                    <p style="text-align: center;" class="text-gray-300 mb-8 leading-relaxed">
                         Como Técnico Informático, me considero una persona curiosa y motivada por el aprendizaje constante. Cuento con amplia experiencia en atención al cliente. Me caracterizo por ser responsable, práctico y empático, con capacidad de adaptación al cambio, facilidad para establecer buenas relaciones interpersonales, compromiso organizacional y aptitud para el trabajo en equipo.</p>
                     
                     <div class="grid grid-cols-2 gap-4 mb-8">
@@ -377,7 +377,7 @@
 
                 <div class="glass p-8 rounded-3xl hover:border-indigo-500 transition-all duration-300 group">
                     <h3 class="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                        <i class="fas fa-user-tie text-indigo-400"></i> Habilidades Blandas
+                        <i class="fas fa-user-tie text-indigo-400"></i> Soft Skills
                     </h3>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3 text-gray-300">
@@ -473,6 +473,22 @@
                     <div class="slide"><img src="img/xampp.png" class="tool-logo"><span class="text-xs">XAMPP</span></div>
                     <div class="slide"><img src="img/thunder.png" class="tool-logo"><span class="text-xs">Thunderbird</span></div>
                     <div class="slide"><img src="img/mysql.png" class="tool-logo"><span class="text-xs">MySQL</span></div>
+                    <div class="slide"><img src="img/canva.png" alt="Canva" class="tool-logo"><span class="text-xs">Canva</span></div>
+                    <div class="slide"><img src="img/gemini.png" alt="Gemini" class="tool-logo"><span class="text-xs">Gemini</span></div>
+                    <div class="slide"><img src="img/html.png" alt="HTML5" class="tool-logo"><span class="text-xs">HMTL5</span></div>
+                    <div class="slide"><img src="img/css.png" alt="CSS3" class="tool-logo"><span class="text-xs">CSS3</span></div>
+                    <div class="slide"><img src="img/wordpress.png" alt="Wordpress" class="tool-logo"><span class="text-xs">Wordpress</span></div>
+                    <div class="slide"><img src="img/word.png" alt="Word" class="tool-logo"><span class="text-xs">Word</span></div>
+                    <div class="slide"><img src="img/excel.png" alt="Excel" class="tool-logo"><span class="text-xs">Excel</span></div>
+                    <div class="slide"><img src="img/powerp.png" alt="PowerPoint" class="tool-logo"><span class="text-xs">PowerPoint</span></div>
+                    <div class="slide"><img src="img/access.png" alt="Access" class="tool-logo"><span class="text-xs">Access</span></div>
+                    <div class="slide"><img src="img/virtualbox.png" alt="VirtualBox" class="tool-logo"><span class="text-xs">VirtualBox</span></div>
+                    <div class="slide"><img src="img/cisco.png" alt="Cisco" class="tool-logo"><span class="text-xs">Packet Tracer</span></div>
+                    <div class="slide"><img src="img/sketch.png" alt="SketchUp" class="tool-logo"><span class="text-xs">SketchUp</span></div>
+                    <div class="slide"><img src="img/vscode.png" alt="VSCode" class="tool-logo"><span class="text-xs">VSCode</span></div>
+                    <div class="slide"><img src="img/filezilla.png" alt="Filezilla" class="tool-logo"><span class="text-xs">Filezilla</span></div>
+
+
                 </div>
             </div>
         </div>
