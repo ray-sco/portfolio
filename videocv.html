@@ -149,33 +149,66 @@
 </section>
 
 <section class="py-16 px-4 reveal">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-2xl font-bold mb-10 text-center">Galería del Proyecto</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="media-container glass rounded-3xl overflow-hidden border border-white/10 group flex flex-col h-full">
-                <div class="h-64 md:h-80 overflow-hidden">
-                    <img src="ia/ia2.png" alt="Captura 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-2xl font-bold mb-10 text-center">Contenido multimedia</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+            
+            <div class="relative glass rounded-3xl p-4 border border-white/10 flex flex-col">
+                <h3 class="text-lg font-semibold mb-4 text-center text-sky-400">Galería de Fotos</h3>
                 
-                <div class="p-4 bg-slate-900/50 mt-auto">
-                    <p class="text-sm text-gray-300 italic text-center">Entrevista simulada a Mark Zuckerberg</p>
+                <div class="relative flex-grow flex items-center">
+                    <button id="galeriaPrev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-sky-500/80 hover:bg-sky-500 text-white w-8 h-8 rounded-full flex items-center justify-center transition-all ml-2">
+                        <i class="fas fa-chevron-left text-xs"></i>
+                    </button>
+                    <button id="galeriaNext" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-sky-500/80 hover:bg-sky-500 text-white w-8 h-8 rounded-full flex items-center justify-center transition-all mr-2">
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </button>
+
+                    <div id="galeriaTrack" class="flex overflow-x-auto snap-x snap-mandatory gap-4 no-scrollbar scroll-smooth w-full">
+                        <div class="snap-center flex-none w-full">
+                            <div class="media-container rounded-2xl overflow-hidden h-64 md:h-80">
+                                <img src="ia/1.png" alt="Captura 1" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="snap-center flex-none w-full">
+                            <div class="media-container rounded-2xl overflow-hidden h-64 md:h-80">
+                                <img src="ia/2.png" alt="Captura 2" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="snap-center flex-none w-full">
+                            <div class="media-container rounded-2xl overflow-hidden h-64 md:h-80">
+                                <img src="ia/3.png" alt="Captura 3" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="snap-center flex-none w-full">
+                            <div class="media-container rounded-2xl overflow-hidden h-64 md:h-80">
+                                <img src="ia/ia3.png" alt="Captura 4" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <p class="text-sm text-gray-400 italic text-center mt-4">Capturas del proceso</p>
             </div>
-            <div class="media-container glass rounded-3xl overflow-hidden border border-white/10 group">
-                <div class="aspect-video">
+
+            <div class="media-container glass rounded-3xl overflow-hidden border border-white/10 flex flex-col">
+                <h3 class="text-lg font-semibold p-4 text-center text-indigo-400">Vídeo currículum
+                </h3>
+                <div class="flex-grow">
                     <iframe 
-                        class="w-full h-full" 
-                        src="https://www.youtube.com/embed/z6MvEtKYau8" 
+                        class="w-full h-full min-h-[300px]" 
+                        src="https://www.youtube.com/embed/z6MvEtKYau8"
                         title="YouTube video player" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
                     </iframe>
                 </div>
-                <div class="p-4 bg-slate-900/50 mt-auto">
-                    <p class="text-sm text-gray-400 italic text-center">Resultado final del proyecto</p>
+                <div class="p-4 bg-slate-900/50">
+                    <p class="text-sm text-gray-400 italic text-center">Video del resultado del proyecto</p>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -212,6 +245,35 @@
         }, observerOptions);
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('galeriaTrack');
+    const next = document.getElementById('galeriaNext');
+    const prev = document.getElementById('galeriaPrev');
+
+    if(track && next && prev) {
+        const scrollAmount = () => track.querySelector('.snap-center').offsetWidth + 16;
+
+        next.addEventListener('click', () => {
+            if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+            }
+        });
+
+        prev.addEventListener('click', () => {
+            if (track.scrollLeft <= 10) {
+                track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+            }
+        });
+    }
+});
+
+
     </script>
 </body>
 </html>
