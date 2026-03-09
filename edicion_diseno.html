@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minijuegos | Raymond Escobar</title>
+    <title>Edición y Diseño | Raymond Escobar</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="img/favico.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -98,10 +98,10 @@
         <div class="max-w-4xl mx-auto text-center">
             <span class="text-sky-400 font-bold uppercase tracking-widest text-sm">Proyecto destacado</span>
             <h1 class="text-4xl md:text-6xl font-extrabold mt-4 mb-6 bg-gradient-to-r from-sky-400 to-indigo-500 bg-clip-text text-transparent">
-                Minijuegos
+                Edición y Diseño
             </h1>
             <p class="text-lg text-gray-400 max-w-2xl mx-auto">
-                Selección de minijuegos realizados en PowerPoint.
+                Creación y modificación de imágenes con herramientas manuales e IA.
             </p>
         </div>
     </header>
@@ -114,10 +114,10 @@
                 </h2>
                 <div class="text-gray-300 leading-relaxed space-y-4">
                     <p>
-                        Este proyecto consistió en la creación de un total de diez minijuegos con temáticas variadas, haciendo uso de las herramientas de animación de PowerPoint.
+                        Esta sección agrupa varias actividades en las cuales se crearon o modificaron imágenes a través de herramientas de edición como Gimp y Photoshop, así como mediante el uso de Inteligencia Artificial.
                     </p>
                     <p>
-                        En este caso, el proyecto contiene una selección de juegos como búsqueda de objetos ocultos, resolución de acertijos, laberintos, pruebas de lógica y destreza en el uso del ratón. 
+                        En este caso, los proyectos incluyen retoques corporales o faciales, sustitución de personas en las fotos y creación de carteles, entre los cuales destaca el ganador al Primer Lugar de la XVIII Semana Técnica del Colegio La Salle. 
                     </p>
                 </div>
             </div>
@@ -127,85 +127,94 @@
 <section class="py-16 px-4 reveal">
     <div class="max-w-4xl mx-auto">
         <h2 class="text-2xl font-bold mb-8 text-center">Tecnologías y Herramientas</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-1 gap-16 justify-center max-w-3xl mx-auto">
-            
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-center max-w-3xl mx-auto">
+
             <div class="tool-badge glass p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center">
-                <i class="fas fa-cube text-sky-400 text-3xl mb-3"></i> <span class="font-semibold text-sm">Microsoft PowerPoint</span>
+                <i class="fas fa-image text-blue-500 text-3xl mb-3"></i>
+                <span class="font-semibold text-sm">Photoshop</span>
             </div>
 
+            <div class="tool-badge glass p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center">
+                <i class="fas fa-paint-brush text-orange-400 text-3xl mb-3"></i> 
+                <span class="font-semibold text-sm">Gimp</span>
+            </div>
+            
+            <div class="tool-badge glass p-6 rounded-2xl border border-white/5 flex flex-col items-center text-center">
+                <i class="fas fa-wand-magic-sparkles text-cyan-400 text-3xl mb-3"></i> 
+                <span class="font-semibold text-sm">Gemini</span>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="py-16 px-4 reveal">
-    <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl font-bold mb-10 text-center">Contenido multimedia</h2>
+<section class="py-20 px-4 reveal">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-10 text-center bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
+            Contenido Multimedia
+        </h2>
         
-        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+        <div class="relative p-2 md:p-6 rounded-[2.5rem] bg-white/5 backdrop-blur-lg border border-white/10 shadow-2xl">
             
-            <div class="relative glass rounded-3xl p-4 border border-white/10 flex flex-col">
-                <h3 class="text-lg font-semibold mb-4 text-center text-sky-400">Galería de Fotos</h3>
-                
-                <div class="relative flex-grow flex items-center">
-                    <button id="galeriaPrev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-sky-500/80 hover:bg-sky-500 text-white w-8 h-8 rounded-full flex items-center justify-center transition-all ml-2">
-                        <i class="fas fa-chevron-left text-xs"></i>
-                    </button>
-                    <button id="galeriaNext" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-sky-500/80 hover:bg-sky-500 text-white w-8 h-8 rounded-full flex items-center justify-center transition-all mr-2">
-                        <i class="fas fa-chevron-right text-xs"></i>
-                    </button>
+            <div class="relative overflow-hidden rounded-[2rem] bg-slate-900/40">
+                <button id="galeriaPrev" class="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-sky-500 backdrop-blur-md text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 border border-white/10 group">
+                    <i class="fas fa-chevron-left text-lg group-hover:-translate-x-1 transition-transform"></i>
+                </button>
+                <button id="galeriaNext" class="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-sky-500 backdrop-blur-md text-white w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 border border-white/10 group">
+                    <i class="fas fa-chevron-right text-lg group-hover:translate-x-1 transition-transform"></i>
+                </button>
 
-                    <div id="galeriaTrack" class="flex overflow-x-auto snap-x snap-mandatory gap-4 no-scrollbar scroll-smooth w-full">
-                        <div class="snap-center flex-none w-full">
-                            <div class="media-container rounded-2xl overflow-hidden h-64 md:h-80">
-                                <img src="minijuegos/3.png" alt="Captura 1" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="snap-center flex-none w-full">
-                            <div class="media-container rounded-2xl overflow-hidden h-64 md:h-80">
-                                <img src="minijuegos/5.png" alt="Captura 2" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="snap-center flex-none w-full">
-                            <div class="media-container rounded-2xl overflow-hidden h-64 md:h-80">
-                                <img src="minijuegos/4.png" alt="Captura 3" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                        <div class="snap-center flex-none w-full">
-                            <div class="media-container rounded-2xl overflow-hidden h-64 md:h-80">
-                                <img src="minijuegos/6.png" alt="Captura 4" class="w-full h-full object-cover">
-                            </div>
+                <div id="galeriaTrack" class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth">
+                    
+                    <div class="snap-center flex-none w-full p-4 md:p-8 flex justify-center">
+                        <div class="relative group w-full max-w-5xl h-[50vh] md:h-[65vh] rounded-2xl overflow-hidden">
+                            <img src="edicion_diseno/Licuar.jpg" alt="Captura 1" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
                         </div>
                     </div>
-                </div>
-                <p class="text-sm text-gray-400 italic text-center mt-4">Capturas de pantalla de los juegos</p>
-            </div>
 
-            <div class="media-container glass rounded-3xl overflow-hidden border border-white/10 flex flex-col group">
-                <h3 class="text-lg font-semibold p-4 text-center text-indigo-400">Descargar Minijuegos</h3>
-                
-                <div class="flex-grow relative overflow-hidden">
-                    <a href="minijuegos/Minijuegos.pps" download="Minijuegos_Raymond" class="block w-full h-full relative">
-                        <img 
-                            src="minijuegos/1.png" 
-                            alt="Descargar Proyecto" 
-                            class="w-full h-full object-cover min-h-[300px] transition-transform duration-500 group-hover:scale-105"
-                        >
-                        <div class="absolute inset-0 bg-indigo-900/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div class="bg-white text-indigo-900 p-4 rounded-full shadow-xl">
-                                <i class="fas fa-download text-2xl"></i>
-                            </div>
+                    <div class="snap-center flex-none w-full p-4 md:p-8 flex justify-center">
+                        <div class="relative group w-full max-w-5xl h-[50vh] md:h-[65vh] rounded-2xl overflow-hidden">
+                            <img src="edicion_diseno/Retoque cara.jpg" alt="Captura 2" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
                         </div>
-                    </a>
-                </div>
+                    </div>
 
-                <div class="p-4 bg-slate-900/50">
-                    <p class="text-sm text-gray-400 italic text-center font-medium group-hover:text-indigo-300 transition-colors">
-                        <i class="fas fa-file-archive mr-2"></i>Haz clic en la imagen para probar los minijuegos
-                    </p>
+                    <div class="snap-center flex-none w-full p-4 md:p-8 flex justify-center">
+                        <div class="relative group w-full max-w-5xl h-[50vh] md:h-[65vh] rounded-2xl overflow-hidden">
+                            <img src="edicion_diseno/Viaje a Suiza.jpg" alt="Captura 3" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+
+                    <div class="snap-center flex-none w-full p-4 md:p-8 flex justify-center">
+                        <div class="relative group w-full max-w-5xl h-[50vh] md:h-[65vh] rounded-2xl overflow-hidden">
+                            <img src="edicion_diseno/Ojos.jpg" alt="Captura 4" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+
+                    <div class="snap-center flex-none w-full p-4 md:p-8 flex justify-center">
+                        <div class="relative group w-full max-w-5xl h-[50vh] md:h-[65vh] rounded-2xl overflow-hidden">
+                            <img src="edicion_diseno/XVIII SEMANA TÉCNICA.jpg" alt="Captura 5" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+
+                    <div class="snap-center flex-none w-full p-4 md:p-8 flex justify-center">
+                        <div class="relative group w-full max-w-5xl h-[50vh] md:h-[65vh] rounded-2xl overflow-hidden">
+                            <img src="edicion_diseno/Cartel.jpg" alt="Captura 6" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+
+                    <div class="snap-center flex-none w-full p-4 md:p-8 flex justify-center">
+                        <div class="relative group w-full max-w-5xl h-[50vh] md:h-[65vh] rounded-2xl overflow-hidden">
+                            <img src="edicion_diseno/Cómo funciona el correo.jpg" alt="Captura 7" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                    </div>
+
                 </div>
             </div>
-
         </div>
+
+        <p class="text-sm text-gray-400 italic text-center mt-8 flex items-center justify-center gap-2">
+            <i class="fas fa-images text-sky-400"></i>
+            Imágenes creadas y editadas | Usa las flechas para explorar el portafolio
+        </p>
     </div>
 </section>
 
